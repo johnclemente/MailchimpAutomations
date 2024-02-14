@@ -8,8 +8,7 @@ This suite of Python scripts provides an efficient way to synchronize contact in
 <code>MAILCHIMP_API_KEY=  
 MAILCHIMP_SERVER_PREFIX=  
 MAILCHIMP_LIST_ID=  
-LOCAL_PC_LOCATION=C:/Users/yourpath/MailChimpContacts.csv  
-</code>
+LOCAL_PC_LOCATION=C:/Users/yourpath/MailChimpContacts.csv</code>
 
 2. python installed on PATH or in the same directory as local project repo
 
