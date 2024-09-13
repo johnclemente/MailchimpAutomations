@@ -1,18 +1,39 @@
-<h1>Tool Description</h1>
+<h1>The Problem</h1>
 
-This suite of Python scripts provides an efficient way to synchronize contact information between a local CSV file and a Mailchimp account. It's designed to help users manage their Mailchimp contacts, including updating names and tags, from the convenience of their local machine. I personally have had a lot of difficulty bulk managing my audience using the current audience manager, so this tool is to help with that!
+Managing contacts in Mailchimp is cumbersome and time consuming.
+
+<h1>Solution</h1>
+
+The project is designed to help users manage their Mailchimp contacts, including updating names and tags, from the convenience of their local machine. I personally have had a lot of difficulty bulk managing my audience using the current audience manager and this tool has helped me a lot.
 
 <h1>Setup</h1>
 
-1. create an .env file in your project directory with the following fields:  
-<code>MAILCHIMP_API_KEY=  
-MAILCHIMP_SERVER_PREFIX=  
-MAILCHIMP_LIST_ID=  
-LOCAL_PC_LOCATION=C:/Users/yourpath/MailChimpContacts.csv</code>
+**1. create an .env file in your project directory with the following fields:**
 
-2. python installed on PATH or in the same directory as local project repo
+<code>MAILCHIMP_API_KEY=</code>
 
-3. Prepare Your CSV File: Create a CSV file named MailChimpContacts.csv in the project directory. The CSV should have the following column headers:
+   <p>You can find your API keys under Profile > Extras > API Keys. (You may need to create a key).</p>
+
+<code>MAILCHIMP_SERVER_PREFIX=</code>
+
+   <p>This should be appended to your API key, remove it and add it here</p>
+
+<code>MAILCHIMP_LIST_ID=</code>
+
+   <p>The Audience ID is under All Contacts > Settings > Audience Name and Defaults > Copy Audience ID</p>
+
+<code>LOCAL_PC_LOCATION=C:/Users/yourpath/MailChimpContacts.csv</code>
+
+<p>The location of your MailChimp.csv contacts file</p>
+
+**2. python installed on PATH**
+OR in the same directory as local project repo
+
+**3. All Dependencies installed**
+(python-dotenv, mailchimp_marketing, and tqdm modules)
+
+**4. Prepare Your CSV File:**
+Create a CSV file named MailChimpContacts.csv in the project directory. The CSV should have the following column headers:
 <code>Email, FirstName, LastName, Tags</code>
 
 <h1>Synchronize Contacts</h1>
@@ -40,6 +61,6 @@ Reflects changes made in the MailChimpContacts.csv file in Mailchimp, updating c
 
 Updates are processed sequentially, which may result in longer execution times for large lists. The script employs parallel processing where feasible to enhance performance.
 
-<h4>Error Handling</h4> 
+<h4>Error Handling</h4>
 
 Basic error handling is included, yet users should manually verify synchronization, especially when encountering specific errors from the Mailchimp API, such as rate limits or validation errors.
