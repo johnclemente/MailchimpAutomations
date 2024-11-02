@@ -1,18 +1,19 @@
 # Script: update_csv_from_mailchimp.py
+# Fetch audience data from mailchimp and update local csv
 
 import csv
-from dotenv import load_dotenv  # Import the load_dotenv function
+from dotenv import load_dotenv
 import os
 import mailchimp_marketing as MailchimpMarketing
 from mailchimp_marketing.api_client import ApiClientError
 
 load_dotenv()
 
-
+# AUTH
 api_key = os.getenv("MAILCHIMP_API_KEY")
-server_prefix = os.getenv("MAILCHIMP_SERVER_PREFIX")
-list_id = os.getenv("MAILCHIMP_LIST_ID")
-csv_filename = os.getenv("LOCAL_PC_LOCATION")
+server_prefix = os.getenv("MAILCHIMP_SERVER_PREFIX") # specify server location
+list_id = os.getenv("MAILCHIMP_LIST_ID") # specify audience ID here
+csv_filename = os.getenv("LOCAL_PC_LOCATION") # file you are using to sync
 
 client_mailchimp = MailchimpMarketing.Client()
 client_mailchimp.set_config({
@@ -28,7 +29,7 @@ def fetch_mailchimp_list_members(list_id, count=200):
         for member in members:
             # Extract tag names from the tags list
             tags = [tag['name'] for tag in member['tags']]
-            # Join tags into a single string, separated by a specific character (e.g., comma)
+            # Join tags into a single string, comma seperated
             tags_str = ', '.join(tags)
             members_data.append({
                 "Email": member['email_address'],

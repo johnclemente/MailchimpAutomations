@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 import mailchimp_marketing as MailchimpMarketing
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from tqdm import tqdm
+from tqdm import tqdm # progress bar
 from mailchimp_marketing.api_client import ApiClientError
 
 load_dotenv()
