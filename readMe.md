@@ -46,14 +46,15 @@ After executing this command, you can make any desired modifications directly in
 <h1>Script Descriptions</h1>
 Below is a brief overview of each script included in this toolset:
 
-<h3>update_mailchimp_names_from_csv.py</h3>
-Updates the names of Mailchimp contacts based on the MailChimpContacts.csv file. Ideal for bulk name updates.
-
 <h3>update_csv_from_mailchimp.py</h3>
 Fetches the latest data from Mailchimp, including emails, names, and tags, and updates the local MailChimpContacts.csv accordingly. This ensures your local copy is in sync with Mailchimp.
 
+<h3>update_mailchimp_names_from_csv.py</h3>
+Updates the names of Mailchimp contacts based on the MailChimpContacts.csv file. This script is faster than <code>update_mailchimp_from_csv.py</code> but does not update tags.
+
+
 <h3>update_mailchimp_from_csv.py</h3>
-Reflects changes made in the MailChimpContacts.csv file in Mailchimp, updating contact names and adding tags. It is efficient but does not remove tags if they are deleted from the CSV.
+Reflects changes made in the MailChimpContacts.csv file in Mailchimp, updating contact names and adding tags. A bit slow but really handy for making overhauling tags in your audience!
 
 <h3>Limitations</h3>
 
